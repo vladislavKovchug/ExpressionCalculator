@@ -47,7 +47,7 @@ public class MathExpressionCalculator extends AbstractFiniteStateMachine<
 
     public static void main(String[] args) throws Exception {
         final MathExpressionCalculator calculator = new MathExpressionCalculator();
-        final double result = calculator.calculate("2 + 2 * 2 ^ 3");
+        final double result = calculator.calculate("1 + 2 * 3 ^ 4");
         System.out.println("result = " + result);
     }
 }

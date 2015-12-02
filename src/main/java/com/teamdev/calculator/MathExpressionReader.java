@@ -18,6 +18,11 @@ public class MathExpressionReader implements InputContext {
         }
     }
 
+    public Character geCurrentCharacter(){
+        skipSpaces();
+        return expression.charAt(position);
+    }
+
     public boolean hasMoreElements() {
         return position < expression.length();
     }

@@ -14,9 +14,11 @@ public class CalculationMatrix implements TransitionMatrix<CalculationState> {
 
     private Map<CalculationState, Set<CalculationState>> transitions = new HashMap<
             CalculationState, Set<CalculationState>>() {{
-        put(START, of(NUMBER));
-        put(NUMBER, of(BINARY_OPERATOR, FINISH));
-        put(BINARY_OPERATOR, of(NUMBER));
+        put(START, of(NUMBER, BLOCK_START));
+        put(NUMBER, of(BINARY_OPERATOR, FINISH, BLOCK_END));
+        put(BINARY_OPERATOR, of(NUMBER, BLOCK_START));
+        put(BLOCK_START, of(NUMBER, BLOCK_START));
+        put(BLOCK_END, of(BINARY_OPERATOR, FINISH, BLOCK_END));
         put(FINISH, noneOf(CalculationState.class));
     }};
 
